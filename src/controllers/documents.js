@@ -11,7 +11,7 @@ const listDocuments = async (req, res) => {
         return res.status(200).json(docs);
 
     } catch (error) {
-        return res.status(400).json(error.message)
+        return res.status(400).json(error.message);
     }
 }
 
@@ -27,7 +27,7 @@ const findDocument = async (req, res) => {
         return res.status(200).json(doc);
 
     } catch (error) {
-        return res.status(400).json(error.message)
+        return res.status(400).json(error.message);
     }
 }
 
@@ -45,12 +45,17 @@ const createDocument = async (req, res) => {
     try {
         await connectMongoDB();
 
-        const savedDoc = await doc.save()
+        const savedDoc = await doc.save();
 
-        return res.status(200).json(savedDoc)
+        if(!savedDoc){
+            const errorMessage = 'Upload failed! Try again later.';
+            return res.status(400).json(errorMessage);
+        }
+
+        return res.status(200).json(savedDoc);
 
     } catch (error) {
-        return res.status(400).json(error.message)
+        return res.status(400).json(error.message);
     }
 }
 
@@ -65,12 +70,12 @@ const deleteDocument = async (req, res) => {
         // const docDeleted = await Document.findByIdAndDelete(id);
 
         //Simulated deletion:
-        const docDeleted = await Document.findByIdAndUpdate(id, {'deletedAt': Date()}, { new: true })
+        const docDeleted = await Document.findByIdAndUpdate(id, {'deletedAt': Date()}, { new: true });
 
-        return res.status(200).json(doc);
+        return res.status(200).json(docDeleted);
 
     } catch (error) {
-        return res.status(400).json(error.message)
+        return res.status(400).json(error.message);
     }
 }
 
