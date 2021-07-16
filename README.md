@@ -6,14 +6,14 @@ API build for a coding challenge.
 
 ### Route '/documents'
 
-*GET*
-*GET* /id
-*DELETE* /id
-*POST*
+* *GET*
+* *GET* /id
+* *DELETE* /id
+* *POST*
 
 ### Route 'GET /weekday-after'
 
-*GET* ?startDay={startDay}&amountOfDays={amountOfDays}
+* *GET* ?startDay={startDay}&amountOfDays={amountOfDays}
 
 
 ## Dependencies
