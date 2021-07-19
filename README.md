@@ -9,14 +9,14 @@ This represents an API that saves and views saved documents saved in a MongoDB d
 ### Route '/documents'
 
 All documents follow this schema:
-
+```
 *_id*: Automatically generated and unique.
 *Name*: String required at the creation of the document.
 *Content*: Any conntent to be base64 encoded. Required.
 *kbSize*: Float representing the size in kilobytes of the content. Automatically generated.
 *createdAt*: Date of creation. Automatically generated.
 *deletedAt*: Date of simulated deletion, once the endpoint is called.
-
+```
 
 * `GET`
 
