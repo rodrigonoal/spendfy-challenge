@@ -1,10 +1,12 @@
-# spendfy-challenge
+# Spendfy-challenge
 
 API build for a coding challenge. 
 
+`Deploy`: https://spendify-challenge.herokuapp.com/
+
 ## Main characteristics:
 
-This represents an API that saves and views saved documents saved in a MongoDB database.
+This represents an API that saves and views saved documents at MongoDB.
 
 ### Route '/documents'
 
