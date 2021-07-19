@@ -11,7 +11,7 @@ const findWeekdayAfter = async (req, res) => {
 
   const answer = weekdays[index > 6 ? index - 7 : index];
 
-  return res.status(200).json(answer);
+  return res.status(200).json({ answer });
 };
 
 module.exports = findWeekdayAfter;

@@ -7,6 +7,11 @@ const listDocuments = async (req, res) => {
 
     const docs = await Document.find();
 
+    if (!docs) {
+      const errorMessage = 'Failed to open database! Try again later.';
+      return res.status(400).json(errorMessage);
+    }
+
     return res.status(200).json(docs);
   } catch (error) {
     return res.status(400).json(error.message);
@@ -20,6 +25,11 @@ const findDocument = async (req, res) => {
     await connectMongoDB();
 
     const doc = await Document.findById(id);
+
+    if (!doc) {
+      const errorMessage = 'Failed to open database! Try again later.';
+      return res.status(400).json(errorMessage);
+    }
 
     return res.status(200).json(doc);
   } catch (error) {
@@ -65,6 +75,13 @@ const deleteDocument = async (req, res) => {
     // const docDeleted = await Document.findByIdAndDelete(id);
 
     // Simulated deletion:
+
+    const doc = await Document.findById(id);
+
+    if (doc.deletedAt) {
+      return res.status(404).json('Document already deleted.');
+    }
+
     const docDeleted = await Document.findByIdAndUpdate(id, { deletedAt: Date() }, { new: true });
 
     return res.status(200).json(docDeleted);
