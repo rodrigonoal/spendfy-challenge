@@ -2,7 +2,7 @@
 
 API build for a coding challenge. 
 
-`Deploy`: https://spendify-challenge.herokuapp.com/
+`Deploy`: https://spendfy-challenge.herokuapp.com/
 
 ## Main characteristics:
 
